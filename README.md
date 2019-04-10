@@ -79,28 +79,17 @@ match Map.find( Current.sender, account_from.allowances ), {
 
 #### Enum  
 
-Will replace (transform) lines starting with
+Will replace (transform) lines starting with enum
 
 ``` ruby
-enum Color =
-enum State =
+enum Color = Red | Green | Blue
+enum State = Fundraising | ExpiredRefund | Successful   #or
+enum State = Fundraising
+           | ExpiredRefund
+           | Successful
 ```
 
 to
-
-``` ruby
-enum :Color,
-enum :State,
-```
-
-Example in the wild:
-
-``` ruby
-enum Color = :red, :green, :blue
-enum State = :fundraising, :expired_refund, :successful
-```
-
-turns into:
 
 ``` ruby
 enum :Color, :red, :green, :blue
@@ -108,9 +97,10 @@ enum :State, :fundraising, :expired_refund, :successful
 ```
 
 
+
 #### Type
 
-Will replace (transform) lines starting with
+Will replace (transform) lines starting with type
 
 ``` ruby
 type Storage =
