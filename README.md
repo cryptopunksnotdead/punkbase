@@ -1,5 +1,5 @@
 
-# Language Syntax Pragmas - Let's Evolve Ruby by Experiment in a Pragma(tic) Way
+# Language Syntax Pragmas - Let's Evolve Ruby by Experimenting in a Pragma(tic) Way
 
 pragmas gem / library  - language syntax pragmas - turn on the future today or add your own ideas for easy (re)use for everyone - let's evolve the ruby language together by experimenting in the wild in a pragma(tic) way
 
