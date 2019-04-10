@@ -10,23 +10,36 @@ pragmas gem / library  - language syntax pragmas - turn on the future today or a
 * rdoc  :: [rubydoc.info/gems/pragmas](http://rubydoc.info/gems/pragmas)
 
 
-## What's a Pragma?
 
-Is this a new idea?  No. (Almost) every programming language
+## Usage
+
+The idea with pragmas is to let everyone (yes, you can) add ideas for easy (re)use for everyone -  
+let's evolve the ruby language syntax together by experimenting in the wild in a pragma(tic) way.  
+Turn on the future today with pragmas.
+
+### By Example
+
+To be done
+
+
+
+
+## Frequently Asked Questions (F.A.Q.s) and Answers
+
+**Q: Are Pragmas a new idea?**
+
+A: No. (Almost) every programming language
 has pragma(tic) language flags / directives. See
-[Directive (programming)](https://en.wikipedia.org/wiki/Directive_(programming))
-@ Wikipedia for more.
+[Directive (programming) @ Wikipedia](https://en.wikipedia.org/wiki/Directive_(programming))
+for more.
 
-What about Ruby today?
+**Q: What about classic "standard" Ruby today?**
 
-Yes, Ruby has (a few built-in) pragmas too in the form of "magic" comment pragmas / directives. With Ruby 2.3 and higher, the following are available:
+A: Yes, Ruby has (a few built-in) pragmas too in the form of "magic" comment pragmas / directives. With Ruby 2.3 and higher, the following are available:
 
-- `# encoding:` Defaults to `utf-8` but you can use any supported encoding. See (or run) `Encoding.name_list` for all (built-in) encodings.
-- `# coding:` A shorthand alias for `# encoding:`.
-- `# frozen_string_literal:` Defaults to `false` but you can use `true` or `false`.
-  When enabled, Ruby throw errors when (frozen) strings (literals) are changed "in-place".
-- `# warn_indent:` Defaults to `false` but you can use `true` or `false`. When
-  enabled, and running Ruby with the `-w` option, throws warnings for code that isn't indented by two spaces.
+- `encoding` (or the `coding:` shorhand) defaults to `utf-8` but you can use any supported encoding. See (or run) `Encoding.name_list` for all (built-in) encodings.
+- `frozen_string_literal: true|false` defaults to `false`. When enabled, Ruby throws errors when (frozen) strings (literals) are changed "in-place".
+- `warn_indent: true|false` defaults to `false`. When enabled, and running Ruby with the `-w` option, throws warnings for code that isn't indented by two spaces.
 
 Example:
 
@@ -36,24 +49,10 @@ Example:
 # warn_indent:           true
 ```
 
-The idea with pragmas is to let everyone (yes, you can) add ideas for easy (re)use for everyone -  
-let's evolve the ruby language syntax together
-by experimenting in the wild in a pragma(tic).  
-Turn on the future today with pragmas.
-
-
-## Usage
-
-### By Example
-
-To be done
-
-
-
 
 ## References
 
-What's a (Language Syntax Preprocessor) Pragma / Directive?  See [Directive (programming)](https://en.wikipedia.org/wiki/Directive_(programming)) @ Wikipedia
+What's a (Language Syntax Preprocessor) Pragma / Directive?  See [Directive (programming) @ Wikipedia](https://en.wikipedia.org/wiki/Directive_(programming)) 
 on Pragmas in other languages (including C/C++, Ada, Common Lisp, Turbo Pascal,
 Perl, Haskell, Python, JavaScript, and more).
 
