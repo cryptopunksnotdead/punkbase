@@ -87,7 +87,6 @@ enum State = Fundraising | ExpiredRefund | Successful   #or
 enum State = Fundraising
            | ExpiredRefund
            | Successful
-enum TravelClass = First | Business | Economy
 ```
 
 to
@@ -98,12 +97,28 @@ enum :State, :fundraising, :expired_refund, :successful
 enum :TravelClass, :first, :business, :economy
 ```
 
+Note: For type-safe enums in ruby see [`s6ruby/enums` »](<https://github.com/s6ruby/enums>).
+
+
+#### (Algebraic) Union Data Types (with Variants)
+
+Will replace (transform) lines starting with data
+
+``` ruby
+data TravelClass = First | Business | Economy
+```
+
+to
+
+``` ruby
+data :TravelClass, :First, :Business, :Economy
+```
 
 Example in the wild:
 
 ``` ruby
-ticket = TravelClass.first
-cost = match ticket, {
+ticket = First
+cost = TravelClass.match ticket, {
          | First    => { 800 },
          | Business => { 500 },
          | Economy  => { 200 }
@@ -111,7 +126,8 @@ cost = match ticket, {
 }
 ```
 
-Note: For type-safe enums in ruby see [`s6ruby/enums` »](<https://github.com/s6ruby/enums>).
+Note: For (algebraic) union data types with (enumerated) variants in ruby see [`s6ruby/safedata` »](<https://github.com/s6ruby/safedata>).
+
 
 
 #### Type Type
