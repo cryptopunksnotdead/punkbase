@@ -47,8 +47,8 @@ With Ruby 2.3 and higher, the following are available:
 
 | Pragma |   Comments   |
 |--------|--------------|
-| `encoding: <encoding_name>` (defaults to `utf-8`) | (or the `coding` shorhand)  Use any supported encoding, see (or run) `Encoding.name_list` for all (built-in) encoding names. |
-| `frozen_string_literal: true\|false` (defaults to`false`) | . When enabled, Ruby throws errors when (frozen) strings (literals) are changed "in-place". |
+| `encoding: <encoding_name>` (defaults to `utf-8`) or the `coding:` shorhand | Use any supported encoding, see [`Encoding.name_list`](https://ruby-doc.org/core-2.6/Encoding.html#method-c-name_list) for all (built-in) encoding names. |
+| `frozen_string_literal: true\|false` (defaults to`false`) | When enabled, Ruby throws errors when (frozen) strings (literals) are changed "in-place". |
 | `warn_indent: true\|false` (defaults to `false`) | When enabled, and running Ruby with the `-w` option, throws warnings for code that isn't indented by two spaces. |
 
 
