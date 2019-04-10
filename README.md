@@ -288,7 +288,7 @@ Array.define( Operation )
 Hash.define( Address, Integer )
 ```
 
-Note: For type-safe array, hash tables and more in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
+Note: For type-safe arrays, hash tables and more in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
 
 
 
