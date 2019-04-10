@@ -167,6 +167,57 @@ storage[:greeting]
 ```
 
 
+#### Auto Numbered Arguments / Parameters
+
+Will replace `&<num>` to the upcoming `@<num>`
+
+``` ruby
+(1..9).each_slice(3).map { &1 + &2 + &3 }
+[{name: 'foo'}, {name: 'bar'}].map { &1[:name] }
+```
+
+to
+
+``` ruby
+(1..9).each_slice(3).map { @1 + @2 + @3 }
+[{name: 'foo'}, {name: 'bar'}].map { @1[:name] }
+```
+
+
+#### Do End-of-Line Block
+
+Will replace `do:` until the end of the line with a `{}` code block
+
+``` ruby
+(1..9).each_slice(3).map do: &1 + &2 + &3
+[{name: 'foo'}, {name: 'bar'}].map do: &1[:name]
+```
+
+to
+
+``` ruby
+(1..9).each_slice(3).map { &1 + &2 + &3 }
+[{name: 'foo'}, {name: 'bar'}].map { &1[:name] }
+```
+
+
+#### Typed Data Structures
+
+Will replace `<type>‹<value_type>›` with `<type>.define( <value_type> )` or
+`<type>‹<key_type>→<value_type>›`  with `<type>.define( <key_type>, <value_type> )`
+
+``` ruby
+Array‹Operation›
+Hash‹Address→Integer›
+```
+
+to
+
+``` ruby
+Array.define( Operation )
+Hash.define( Address, Integer )
+```
+
 and so on and so forth. What's your idea / pragma?
 
 
