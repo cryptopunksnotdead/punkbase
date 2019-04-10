@@ -236,7 +236,7 @@ storage[:greeting]
 ```
 
 
-#### Auto Numbered Arguments / Parameters
+#### Auto Numbered Block Arguments / Parameters
 
 Will replace `&<num>` to the upcoming `@<num>`
 
