@@ -77,7 +77,7 @@ match Map.find( Current.sender, account_from.allowances ), {
 ```
 
 
-#### Enum  
+#### Enum Type
 
 Will replace (transform) lines starting with enum
 
@@ -98,7 +98,7 @@ enum :State, :fundraising, :expired_refund, :successful
 
 
 
-#### Type
+#### Type Type
 
 Will replace (transform) lines starting with type
 
@@ -149,8 +149,46 @@ type :Storage, {
 ```
 
 
+#### Struct Type
 
-#### Storage
+Will replace (transform) lines starting with struct
+
+``` ruby
+struct Voter    = 
+struct Proposal =
+```
+
+to
+
+``` ruby
+struct :Voter, 
+struct :Proposal,
+```
+
+Example in the wild:
+
+``` ruby
+struct Voter    = { weight:   0,
+                    voted:    false,
+                    vote:     0,
+                    delegate: Address(0) }
+
+struct Proposal = { vote_count: 0 }
+```
+
+turns into:
+
+``` ruby
+struct :Voter,    { weight:   0,
+                    voted:    false,
+                    vote:     0,
+                    delegate: Address(0) }
+
+struct :Proposal, { vote_count: 0 }
+```
+
+
+#### Storage / State
 
 Will replace (transform) `@<id>` to `storage[:id]`
 
@@ -225,7 +263,7 @@ and so on and so forth. What's your idea / pragma?
 
 ## Frequently Asked Questions (F.A.Q.s) and Answers
 
-**Q: Are Pragmas a new idea?**
+**Q: Are pragmas a new idea?**
 
 A: No. (Almost) every programming language
 has pragma(tic) language flags / directives. See
