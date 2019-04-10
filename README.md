@@ -97,7 +97,7 @@ Example in the wild:
 
 ``` ruby
 enum Color = :red, :green, :blue
-enum State = :fundraising, :expired_refund, :successful]
+enum State = :fundraising, :expired_refund, :successful
 ```
 
 turns into:
