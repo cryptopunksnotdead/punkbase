@@ -94,7 +94,6 @@ to
 ``` ruby
 enum :Color, :red, :green, :blue
 enum :State, :fundraising, :expired_refund, :successful
-enum :TravelClass, :first, :business, :economy
 ```
 
 Note: For type-safe enums in ruby see [`s6ruby/enums` »](<https://github.com/s6ruby/enums>).
