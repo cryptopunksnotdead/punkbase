@@ -17,9 +17,167 @@ The idea with pragmas is to let everyone (yes, you can) add ideas for easy (re)u
 let's evolve the ruby language syntax together by experimenting in the wild in a pragma(tic) way.  
 Turn on the future today with pragmas.
 
+
 ### By Example
 
-To be done
+#### Pattern Matcher
+
+Will replace (transform) lines starting with
+
+``` ruby
+| None    =>
+| Some(x) =>
+```
+
+to
+
+``` ruby
+None: ->()  
+Some: ->(x)
+```
+
+Example in the wild:
+
+``` ruby
+match Map.find( Current.sender, account_from.allowances ), {
+      | None          => { failwith( "Not allowed to spend from", from ) },
+      | Some(allowed) => {
+        match is_nat(allowed - tokens), {
+          | None          => { failwith( "Not enough allowance for transfer", allowed ) },
+          | Some(allowed) => {
+            if allowed == 0.p
+              Map.remove( Current.sender, account_from.allowances )
+            else
+              Map.add( Current.sender, allowed, account_from.allowances )
+            end
+          }
+        }
+      }
+    }
+```
+
+turns into:
+
+``` ruby
+match Map.find( Current.sender, account_from.allowances ), {
+      None: ->()        { failwith( "Not allowed to spend from", from ) },
+      Some: ->(allowed) {
+        match is_nat(allowed - tokens), {
+          None: ->() { failwith( "Not enough allowance for transfer", allowed ) },
+          Some: ->(allowed) {
+            if allowed == 0.p
+              Map.remove( Current.sender, account_from.allowances )
+            else
+              Map.add( Current.sender, allowed, account_from.allowances )
+            end
+          }
+        }
+      }
+    }
+```
+
+
+#### Enum  
+
+Will replace (transform) lines starting with
+
+``` ruby
+enum Color =
+enum State =
+```
+
+to
+
+``` ruby
+enum :Color,
+enum :State,
+```
+
+Example in the wild:
+
+``` ruby
+enum Color = :red, :green, :blue
+enum State = :fundraising, :expired_refund, :successful]
+```
+
+turns into:
+
+``` ruby
+enum :Color, :red, :green, :blue
+enum :State, :fundraising, :expired_refund, :successful
+```
+
+
+#### Type
+
+Will replace (transform) lines starting with
+
+``` ruby
+type Storage =
+type Account =
+```
+
+to
+
+``` ruby
+type :Storage,
+type :Account,
+```
+
+Example in the wild:
+
+``` ruby
+type Account = {
+  balance:      Nat,
+  allowances:   Map‹Address→Nat› }
+
+type Storage = {
+  accounts:     BigMap‹Address→Account›,
+  version:      Nat,
+  total_supply: Nat,
+  decimals:     Nat,
+  name:         String,
+  symbol:       String,
+  owner:        Address }
+```
+
+turns into:
+
+``` ruby
+type :Account, {
+  balance:      Nat,
+  allowances:   Map‹Address→Nat› }
+
+type :Storage, {
+  accounts:     BigMap‹Address→Account›,
+  version:      Nat,
+  total_supply: Nat,
+  decimals:     Nat,
+  name:         String,
+  symbol:       String,
+  owner:        Address }
+```
+
+
+
+#### Storage
+
+Will replace (transform) `@<id>` to `storage[:id]`
+
+``` ruby
+@owner
+@greeting
+```
+
+to
+
+``` ruby
+storage[:owner]
+storage[:greeting]
+```
+
+
+and so on and so forth. What's your idea / pragma?
 
 
 
@@ -56,7 +214,7 @@ With Ruby 2.3 and higher, the following are available:
 
 ## References
 
-What's a (Language Syntax Preprocessor) Pragma / Directive?  See [Directive (programming) @ Wikipedia](https://en.wikipedia.org/wiki/Directive_(programming)) 
+What's a (Language Syntax Preprocessor) Pragma / Directive?  See [Directive (programming) @ Wikipedia](https://en.wikipedia.org/wiki/Directive_(programming))
 on Pragmas in other languages (including C/C++, Ada, Common Lisp, Turbo Pascal,
 Perl, Haskell, Python, JavaScript, and more).
 
