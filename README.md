@@ -87,6 +87,7 @@ enum State = Fundraising | ExpiredRefund | Successful   #or
 enum State = Fundraising
            | ExpiredRefund
            | Successful
+enum TravelClass = First | Business | Economy
 ```
 
 to
@@ -94,8 +95,23 @@ to
 ``` ruby
 enum :Color, :red, :green, :blue
 enum :State, :fundraising, :expired_refund, :successful
+enum :TravelClass, :first, :business, :economy
 ```
 
+
+Example in the wild:
+
+``` ruby
+ticket = TravelClass.first
+cost = match ticket, {
+         | First    => { 800 },
+         | Business => { 500 },
+         | Economy  => { 200 }
+       }
+}
+```
+
+Note: For type-safe enums in ruby see [`s6ruby/enums` »](<https://github.com/s6ruby/enums>).
 
 
 #### Type Type
@@ -256,7 +272,11 @@ Array.define( Operation )
 Hash.define( Address, Integer )
 ```
 
-and so on and so forth. What's your idea / pragma?
+Note: For type-safe array, hash tables and more in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
+
+
+
+And so on and so forth. What's your idea / pragma?
 
 
 
