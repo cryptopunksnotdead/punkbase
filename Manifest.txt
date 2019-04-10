@@ -1,0 +1,7 @@
+CHANGELOG.md
+LICENSE.md
+Manifest.txt
+README.md
+Rakefile
+lib/pragmas.rb
+lib/pragmas/version.rb
