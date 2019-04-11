@@ -294,6 +294,8 @@ Will replace `<type>‹<value_type>›` with `<type>.of( <value_type> )` or
 
 ``` ruby
 Array‹Operation›
+Array‹Proposal›×2
+Array‹Integer›×9
 Hash‹Address→Integer›
 Option‹Game›
 ```
@@ -302,11 +304,13 @@ to
 
 ``` ruby
 Array.of( Operation )
+Array.of( Proposal, 2 ) 
+Array.of( Integer, 9 )
 Hash.of( Address, Integer )
 Option.of( Game )
 ```
 
-Note: For type-safe arrays, hash tables and more in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
+Note: For type-safe arrays and hash tables in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
 
 
 #### Typed Arrays
@@ -323,9 +327,12 @@ to
 
 ``` ruby
 Array.of( Proposal )       # note: same as Array‹Proposal›
-Array.of( Proposal, 2 )    # note: same as Array‹Proposalx2›
-Array.of( Integer, 9 )     # note: same as Array‹Integerx9›
+Array.of( Proposal, 2 )    # note: same as Array‹Proposal›×2
+Array.of( Integer, 9 )     # note: same as Array‹Integer›×9
 ```
+
+Note: For type-safe arrays in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
+
 
 
 
