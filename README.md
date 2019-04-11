@@ -219,6 +219,23 @@ struct :Proposal, { vote_count: 0 }
 ```
 
 
+#### Option / Maybe / Nullable
+
+Will replace / unroll the option type shortcut `<type>?`
+
+``` ruby
+Integer?
+Game?
+```
+
+to
+
+``` ruby
+Option‹Integer›
+Option‹Game›
+```
+
+
 #### Storage / State
 
 Will replace (transform) `@<id>` to `storage[:id]`
@@ -272,22 +289,43 @@ to
 
 #### Typed Data Structures
 
-Will replace `<type>‹<value_type>›` with `<type>.define( <value_type> )` or
-`<type>‹<key_type>→<value_type>›`  with `<type>.define( <key_type>, <value_type> )`
+Will replace `<type>‹<value_type>›` with `<type>.of( <value_type> )` or
+`<type>‹<key_type>→<value_type>›`  with `<type>.of( <key_type>, <value_type> )`
 
 ``` ruby
 Array‹Operation›
 Hash‹Address→Integer›
+Option‹Game›
 ```
 
 to
 
 ``` ruby
-Array.define( Operation )
-Hash.define( Address, Integer )
+Array.of( Operation )
+Hash.of( Address, Integer )
+Option.of( Game )
 ```
 
 Note: For type-safe arrays, hash tables and more in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
+
+
+#### Typed Arrays
+
+Will replace / unroll the array shortcut `<type>[]` or `<type>[<num>]`
+
+``` ruby
+Proposal[]
+Proposal[2]
+Integer[9]
+```
+
+to
+
+``` ruby
+Array.of( Proposal ).new       # note: same as Array‹Proposal›.new
+Array.of( Proposal, 2 ).new    # note: same as Array‹Proposalx2›.new
+Array.of( Integer, 9 ).new     # note: same as Array‹Integerx9›.new
+```
 
 
 
