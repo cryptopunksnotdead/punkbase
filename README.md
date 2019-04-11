@@ -231,8 +231,8 @@ Game?
 to
 
 ``` ruby
-Option‹Integer›
-Option‹Game›
+Option.of(Integer)   # note: same as Option‹Integer›
+Option.of(Game)      # note: same as Option‹Game›
 ```
 
 
