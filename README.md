@@ -179,6 +179,56 @@ type :Storage, {
   owner:        Address }
 ```
 
+#### Pretty Symbol Keys
+
+Will remove trailing spaces in symbol keys before the colon (`:`)
+
+``` ruby
+balance    : Nat,
+allowances : Map‹Address→Nat›,
+```
+
+turns into:
+
+``` ruby
+balance:     Nat,
+allowances:  Map‹Address→Nat›,
+```
+
+Example in the wild:
+
+``` ruby
+type Account = {
+  balance      : Nat,
+  allowances   : Map‹Address→Nat› }
+
+type Storage = {
+  accounts     : BigMap‹Address→Account›,
+  version      : Nat,
+  total_supply : Nat,
+  decimals     : Nat,
+  name         : String,
+  symbol       : String,
+  owner        : Address }
+```
+
+turns into:
+
+``` ruby
+type Account = {
+  balance:     Nat,
+  allowances:  Map‹Address→Nat› }
+
+type Storage = {
+  accounts:     BigMap‹Address→Account›,
+  version:      Nat,
+  total_supply: Nat,
+  decimals:     Nat,
+  name:         String,
+  symbol:       String,
+  owner:        Address }
+```
+
 
 #### Struct Type
 
@@ -233,6 +283,22 @@ to
 ``` ruby
 Option.of(Integer)   # note: same as Option‹Integer›
 Option.of(Game)      # note: same as Option‹Game›
+```
+
+#### Natural / Positive Integer Numbers
+
+Adds the "missing" dot (`.`) to natural / positive integer numbers
+
+``` ruby
+0p
+1p
+```
+
+turns into:
+
+``` ruby
+0.p
+1.p
 ```
 
 
@@ -335,6 +401,78 @@ Array.of( Integer, 9 )              # note: same as Array‹Integer›×9
 
 Note: For type-safe arrays in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
 
+
+#### Preprocessor Directives
+
+Turns preprocessor directives into config hash lookups or predicates / boolean tests
+
+``` ruby
+$DEFINED[:bound]
+$TRUE[:bound]
+$FALSE[:bound]
+$PARA[:bound]
+```
+
+results in:
+
+``` ruby
+!config[:bound].nil?
+config[:bound].true?
+config[:bound].false?
+config[:bound]
+```
+
+Example in the wild:
+
+``` ruby
+def remove( cell, k )
+  assert 0 <= cell
+  assert cell < @size
+  assert 1 <= k
+  if $DEFINED[:bound]
+    assert k <= $PARA[:bound]
+  end
+  assert k <= @deck[cell]
+
+  # ...
+end
+
+def claim
+  # ...
+  if $TRUE[:winner_is_last]
+    @winner = 3 - @nextPlayer
+  else
+    @winner = @nextPlayer
+  end
+end
+```
+
+turns into:
+
+``` ruby
+def remove( cell, k )
+  assert 0 <= cell
+  assert cell < @size
+  assert 1 <= k
+  if !config[:bound].nil?
+    assert k <= config[:bound]
+  end
+  assert k <= @deck[cell]
+
+  # ...
+end
+
+def claim
+  # ...
+  if config[:winner_is_last].true?
+    @winner = 3 - @nextPlayer
+  else
+    @winner = @nextPlayer
+  end
+end
+```
+
+Note: For type-safe true? and false? in ruby see [`s6ruby/safebool` »](<https://github.com/s6ruby/safebool>).
 
 
 
