@@ -315,20 +315,22 @@ Note: For type-safe arrays or hash tables in ruby see [`s6ruby/safestruct` »](<
 
 #### Typed Arrays
 
-Will replace / unroll the array shortcut `<type>[]` or `<type>[<num>]`
+Will replace / unroll the array shortcut `<type>[]` or `<type>[<num>]` or `<type>[<id>]`
 
 ``` ruby
 Proposal[]
 Proposal[2]
+Proposal[ num_proposals ]
 Integer[9]
 ```
 
 to
 
 ``` ruby
-Array.of( Proposal )       # note: same as Array‹Proposal›
-Array.of( Proposal, 2 )    # note: same as Array‹Proposal›×2
-Array.of( Integer, 9 )     # note: same as Array‹Integer›×9
+Array.of( Proposal )                # note: same as Array‹Proposal›
+Array.of( Proposal, 2 )             # note: same as Array‹Proposal›×2
+Array.of( Proposal, num_proposals )
+Array.of( Integer, 9 )              # note: same as Array‹Integer›×9
 ```
 
 Note: For type-safe arrays in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
