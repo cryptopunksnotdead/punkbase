@@ -322,9 +322,9 @@ Integer[9]
 to
 
 ``` ruby
-Array.of( Proposal ).new       # note: same as Array‹Proposal›.new
-Array.of( Proposal, 2 ).new    # note: same as Array‹Proposalx2›.new
-Array.of( Integer, 9 ).new     # note: same as Array‹Integerx9›.new
+Array.of( Proposal )       # note: same as Array‹Proposal›
+Array.of( Proposal, 2 )    # note: same as Array‹Proposalx2›
+Array.of( Integer, 9 )     # note: same as Array‹Integerx9›
 ```
 
 
