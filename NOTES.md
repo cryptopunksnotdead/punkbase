@@ -1,6 +1,13 @@
 # Notes
 
 
+## Discuss
+
+Use `Option[Integer]` or `Option(Integer)` or `Option.of(Integer)` or `Option‹Integer›` - why? why not?
+
+
+
+
 ## Other Pragma Libraries / Gems
 
 - <https://github.com/bkuhlmann/pragmater>
