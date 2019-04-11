@@ -310,7 +310,7 @@ Hash.of( Address, Integer )
 Option.of( Game )
 ```
 
-Note: For type-safe arrays and hash tables in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
+Note: For type-safe arrays or hash tables in ruby see [`s6ruby/safestruct` »](<https://github.com/s6ruby/safestruct>).
 
 
 #### Typed Arrays
