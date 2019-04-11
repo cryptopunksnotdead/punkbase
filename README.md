@@ -20,6 +20,22 @@ Turn on the future today with pragmas.
 
 ### By Example
 
+[Pattern Matcher](#pattern-matcher) •
+[Enum Type](#enum-type) •
+[(Algebraic) Union Data Types (with Variants)](#algebraic-union-data-types-with-variants) •
+[Type Type](#type-type) •
+[Pretty Symbol Keys](#pretty-symbol-keys) •
+[Struct Type](#struct-type) •
+[Option / Maybe / Nullable](#option--maybe--nullable) •
+[Natural / Positive Integer Numbers](#natural--positive-integer-numbers) •
+[Storage / State](#storage--state) •
+[Auto Numbered Block Arguments / Parameters](#auto-numbered-block-arguments--parameters) •
+[Do End-of-Line Block](#do-end-of-line-block) •
+[Typed Data Structures](#typed-data-structures) •
+[Typed Arrays](#typed-arrays) •
+[Preprocessor Directives](#preprocessor-directives)
+
+
 #### Pattern Matcher
 
 Will replace (transform) lines starting with
