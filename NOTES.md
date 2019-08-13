@@ -18,6 +18,9 @@ Frozen String Literal - starting with Ruby 2.3.0, frozen strings are supported v
 
 - <https://freelancing-gods.com/2017/07/27/friendly-frozen-string-literals.html>
 
+Magic comments in Ruby by Mehdi Farsi, Aug 13, 2019
+
+- <https://medium.com/@farsi_mehdi/magic-comments-in-ruby-81d45ff92e34>
 
 
 ## Pragmas in Other Languages
