@@ -1,6 +1,7 @@
 # Punkbase
 
-query punk metadata & images via sql & more - all-in-one single-file sqlite database
+query punk metadata & images via sql & more - all-in-one single-file sqlite database, that is, punkbase.db (~5MB)
+
 
 
 For now all data (10 000 records)
