@@ -28,6 +28,8 @@ CREATE TABLE metadata (
     mouth_prop VARCHAR,
     ears       VARCHAR,
     neck       VARCHAR,
+    
+    -- image
     image      VARCHAR      NOT NULL
 );
 ```
