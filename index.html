@@ -1,0 +1,219 @@
+<html>
+<head>
+  <title>punkbase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: rgba(0,0,255,0.04);
+}
+nav {
+  text-align: center;
+  padding: 40px 0 20px 0;
+  color: black;
+  opacity: 0.9;
+}
+.sub {
+  font-size: 14px;
+}
+input[type=text] {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+textarea {
+  width: 100%;
+  height: 50px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 5px;
+  box-sizing: border-box;
+}
+nav a {
+  font-family:  sans-serif;
+  /*
+  letter-spacing: -3px;
+  */
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 10px;
+  color: black;
+}
+nav td:nth-child(1) {
+  width: 100px;
+  font-weight: bold;
+  text-align: right;
+  vertical-align: middle;
+}
+nav table {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 90%;
+}
+nav td {
+  background: none;
+  color: black;
+}
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+}
+.item {
+  width: 200px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.item img {
+  width: 100%;
+  image-rendering: pixelated;
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 0;
+}
+td {
+  background: white;
+  vertical-align: top;
+  word-wrap:break-word;
+  padding: 7px;
+  box-sizing: border-box;
+  font-size: 13px;
+  cursor: pointer;
+}
+.container td:nth-child(1) {
+  font-weight: bold;
+}
+.container td {
+  border-bottom: 2px solid rgba(0,0,255,0.04);
+}
+.container tr:hover td {
+  background: lavender;
+}
+
+
+
+#query {
+  margin-top: 5px;
+  background: royalblue;
+  cursor: pointer;
+  padding: 10px;
+  max-width: 800px;
+  width: 90%;
+  box-sizing: border-box;
+  color: white;
+  border-radius: 4px;
+  border:none;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+.btn {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  letter-spacing: 0;
+  background: rgba(0,0,0,0.9);
+  color: white;
+  padding: 5px 10px;
+  margin: 20px 0;
+  border-radius: 2px;
+}
+
+.loader {
+  padding: 100px;
+  font-size: 14px;
+  opacity: 0.9;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
+<script src="artbase.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const artbase = new Artbase()
+  await artbase.init()
+
+  artbase.next()
+
+
+  document.querySelector("#query").addEventListener("click", () => {
+    artbase.next()
+  })
+
+  document.querySelector(".container").addEventListener("click", (e) => {
+    let target = (e.target.className === "row" ? e.target : (e.target.closest(".row") ? e.target.closest(".row") : null))
+    if (target) {
+      let key = target.getAttribute('data-key')
+      let val = target.getAttribute('data-val')
+      let where = document.querySelector("#where").value
+      if (where.trim().length > 0) {
+        document.querySelector("#where").value = `${where} AND\n"${key}" = "${val}"`
+      } else {
+        document.querySelector("#where").value = `"${key}" = "${val}"`
+      }
+      artbase.next()
+    }
+  })
+})
+</script>
+
+</head>
+<body>
+
+
+<nav>
+  <a href="/">punkbase</a>
+  <div class='sub'>The entire punks universe (10 000 pixel heads)
+    in a single sqlite database (file)
+    with a "serverless" web page for queries
+    and all in a git repository ready to clone / fork. No rights reserved.</div>
+  <div>
+    <a class='btn' href="https://github.com/cryptopunksnotdead/punkbase">Download</a>
+    <a class='btn' href="https://old.reddit.com/r/DIYPunkArt/">Questions? Comments?</a>
+  </div>
+  <table>
+    <tr>
+      <td>SELECT</td>
+      <td><input id='select' type='text' placeholder='select columns' value='*'></td>
+    </tr>
+    <tr>
+      <td>FROM</td>
+      <td>metadata</td>
+    </tr>
+    <tr>
+      <td>WHERE</td>
+      <td><textarea id='where' placeholder='where condition'></textarea></td>
+    </tr>
+    <tr>
+      <td>LIMIT</td>
+      <td><input id='limit' type='text' placeholder='limmit' value=200></td>
+    </tr>
+  </table>
+  <button id='query'>Query</button>
+</nav>
+
+
+<div class='container'>
+  <div class='loader'>
+    <div class='loading dots'></div>
+    <br>
+    <div>Loading ...</div>
+  </div>
+</div>
+</body>
+</html>
