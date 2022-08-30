@@ -3,6 +3,30 @@
 query punk metadata & images via sql & more - all-in-one single-file sqlite database, that is, punkbase.db (~5MB)
 
 
+Try the "serverless" query web page online
+
+- [**cryptopunksnotdead.github.io/punkbase**](https://cryptopunksnotdead.github.io/punkbase/)
+
+
+Yes, you can - run locally (no database server required) - 
+download or clone the punkbase git repo 
+and run a local webserver to serve the static web page and sqlite database. 
+
+In node use:
+
+     $ npx http-server
+
+In ruby use:
+
+     $ ruby -run -e httpd . -p 8080
+
+Or use your local webserver of choice.
+
+
+
+
+## Inside
+
 
 For now all data (10 000 records)
 is in the metadata table.
@@ -90,6 +114,10 @@ Bf8RRv//e4HhLEKZAMNHGIeRRYHBCdU5CXDOAZgBCQwCDA5gQ4GcWQyM/98z
 /poFUTZrPaPg7wVwAw4w7EeYZrPnA4LD8h/T2wA0qh2r1DURDgAAAABJRU5E
 rkJggg==
 ```
+
+resulting in (if you add / paste the image data to / into the src attribute):
+
+<img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAFVBMVEUAAAAAAABQfDNdi0NfHQmui2H/9o4qIUCBAAAAB3RSTlMA////////pX+m+wAAAHhJREFUeJxjYkACTORy2NLSEmAcNiCLDUVZApQDoj+wwWQ+MPz/D1f2/8MHmGlABf8RRv//e4HhLEKZAMNHGIeRRYHBCdU5CXDOAZgBCQwCDA5gQ4GcWQyM/98z/poFUTZrPaPg7wVwAw4w7EeYZrPnA4LD8h/T2wA0qh2r1DURDgAAAABJRU5E">
 
 
 
