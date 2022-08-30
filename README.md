@@ -115,11 +115,14 @@ Bf8RRv//e4HhLEKZAMNHGIeRRYHBCdU5CXDOAZgBCQwCDA5gQ4GcWQyM/98z
 rkJggg==
 ```
 
+<!--
+note: data:image looks to get filtered by github page ?
+
 resulting in (if you add / paste the image data to / into the src attribute):
 
 <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAFVBMVEUAAAAAAABQfDNdi0NfHQmui2H/9o4qIUCBAAAAB3RSTlMA////////pX+m+wAAAHhJREFUeJxjYkACTORy2NLSEmAcNiCLDUVZApQDoj+wwWQ+MPz/D1f2/8MHmGlABf8RRv//e4HhLEKZAMNHGIeRRYHBCdU5CXDOAZgBCQwCDA5gQ4GcWQyM/98z/poFUTZrPaPg7wVwAw4w7EeYZrPnA4LD8h/T2wA0qh2r1DURDgAAAABJRU5E">
 
-
+-->
 
 
 ## Making-Of - Yes, You Can - Build Your Own Punkbase From Zero / Scratch
