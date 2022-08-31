@@ -8,6 +8,56 @@ Try the "serverless" query web page online
 - [**cryptopunksnotdead.github.io/punkbase**](https://cryptopunksnotdead.github.io/punkbase/)
 
 
+Let's try out some sql queries and let's look (and drill-down) for marilyn punkettes (w/ moles).
+
+Click on "gender: f" in any punkette and you will filter only punkettes.
+Click on "head: Wild Blonde" in any punkette and you will add a "Wild Blonde" filter
+resulting in 144 punkettes.
+
+Or try in "raw" sql:
+
+```sql
+select *
+from   metadata
+where  gender = "f" AND
+       head   = "Wild Blonde"
+```
+
+=> 144 punkettes
+
+Now let's drill down.  Click on "skin_tone: Light".
+
+```sql
+select *
+from   metadata
+where  gender    = "f" AND
+       head      = "Wild Blonde" AND
+       skin_tone = "Light"
+```
+
+=> 48 punkettes
+
+And now let's drill down further. Click on "blemishes: Mole".
+
+```sql
+select *
+from   metadata
+where  gender    = "f" AND
+       head      = "Wild Blonde" AND
+       skin_tone = "Light" AND
+       blemishes = "Mole"
+```
+
+=> 3 punkettes
+
+And so on. Voila! Three super-rare marilyns. Where's the blue-eyed marilyn with hot lipstick?
+
+Tip - yes, you can  - generate your own ultra-rare never-before-seen original, see [**Design Your Own Matt & John's® Ye Olde' Punk (Anno 2017) (24×24) Wizard »**](https://cryptopunksnotdead.github.io/pixelart.js/yeoldepunks/).
+
+
+
+##  Run Locally ("Serverless")
+
 Yes, you can - run locally (no database server required) - 
 download or clone the punkbase git repo 
 and run a local webserver to serve the static web page and sqlite database. 
