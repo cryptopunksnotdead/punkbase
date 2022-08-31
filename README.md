@@ -50,7 +50,7 @@ where  gender    = "f" AND
 
 => 3 punkettes
 
-And so on. Voila! Three super-rare marilyns. Where's the blue-eyed marilyn with hot lipstick?
+Voila! Three super-rare marilyns. Where's the blue-eyed marilyn with hot lipstick?
 
 Tip - yes, you can  - generate your own ultra-rare never-before-seen original, see [**Design Your Own Matt & John's® Ye Olde' Punk (Anno 2017) (24×24) Wizard »**](https://cryptopunksnotdead.github.io/pixelart.js/yeoldepunks/).
 
