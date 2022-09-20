@@ -182,6 +182,6 @@ and more
 
 Original idea and source code by Skøgard (of Factoria Fame).
 
-See <https://github.com/mixtape-network/moonbirdbase>
-<https://github.com/mixtape-network/mferbase>
-<https://github.com/mixtape-network/creyziebase>.
+See <https://github.com/mixtape-network/moonbirdbase>,
+<https://github.com/mixtape-network/mferbase>,
+<https://github.com/mixtape-network/creyziebase>. and others.
