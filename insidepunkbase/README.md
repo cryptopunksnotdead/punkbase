@@ -178,7 +178,7 @@ and more
 
 
 
-## Credits - Thanks Yous
+## Credits - Thank Yous
 
 Original idea and source code by Skøgard (of Factoria Fame).
 
