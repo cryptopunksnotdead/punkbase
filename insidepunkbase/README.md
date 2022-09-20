@@ -175,3 +175,13 @@ and more
 
 
 ## Questions? Comments?
+
+
+
+## Credits - Thanks Yous
+
+Original idea and source code by Skøgard (of Factoria Fame).
+
+See <https://github.com/mixtape-network/moonbirdbase>
+<https://github.com/mixtape-network/mferbase>
+<https://github.com/mixtape-network/creyziebase>.
