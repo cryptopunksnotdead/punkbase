@@ -3,13 +3,13 @@
   <title>punkbase</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-<style>
-body {
+  <style>
+ body {
   font-family: sans-serif;
   margin: 0;
   background: rgba(0,0,255,0.04);
 }
+
 nav {
   text-align: center;
   padding: 40px 0 20px 0;
@@ -139,41 +139,8 @@ td {
   font-weight: bold;
   text-transform: uppercase;
 }
-
-</style>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
-<script src="artbase.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", async () => {
-  const artbase = new Artbase()
-  await artbase.init()
-
-  artbase.next()
-
-
-  document.querySelector("#query").addEventListener("click", () => {
-    artbase.next()
-  })
-
-  document.querySelector(".container").addEventListener("click", (e) => {
-    let target = (e.target.className === "row" ? e.target : (e.target.closest(".row") ? e.target.closest(".row") : null))
-    if (target) {
-      let key = target.getAttribute('data-key')
-      let val = target.getAttribute('data-val')
-      let where = document.querySelector("#where").value
-      if (where.trim().length > 0) {
-        document.querySelector("#where").value = `${where} AND\n"${key}" = "${val}"`
-      } else {
-        document.querySelector("#where").value = `"${key}" = "${val}"`
-      }
-      artbase.next()
-    }
-  })
-})
-</script>
-
+  </style>
+  <script src="https://github.com/pixelartexchange/artbase.js/raw/master/artbase.js"></script>
 </head>
 <body>
 
@@ -217,5 +184,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div>Loading ...</div>
   </div>
 </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const artbase = new Artbase()
+    await artbase.init( { database: "punkbase.db",
+                          imageUrl: "https://cryptopunksnotdead.github.io/pixelart.js/yeoldepunks/"
+                        })
+
+    artbase.next()
+
+
+    document.querySelector("#query").addEventListener("click", () => {
+      artbase.next()
+    })
+
+    document.querySelector(".container").addEventListener("click", (e) => {
+      let target = (e.target.className === "row" ? e.target : (e.target.closest(".row") ? e.target.closest(".row") : null))
+      if (target) {
+        let key = target.getAttribute('data-key')
+        let val = target.getAttribute('data-val')
+        let where = document.querySelector("#where").value
+        if (where.trim().length > 0) {
+          document.querySelector("#where").value = `${where} AND\n"${key}" = "${val}"`
+        } else {
+          document.querySelector("#where").value = `"${key}" = "${val}"`
+        }
+        artbase.next()
+      }
+    })
+  })
+  </script>
 </body>
 </html>

@@ -58,9 +58,9 @@ Tip - yes, you can  - generate your own ultra-rare never-before-seen original, s
 
 ##  Run Locally ("Serverless")
 
-Yes, you can - run locally (no database server required) - 
-download or clone the punkbase git repo 
-and run a local webserver to serve the static web page and sqlite database. 
+Yes, you can - run locally (no database server required) -
+download or clone the punkbase git repo
+and run a local webserver to serve the static web page and sqlite database.
 
 In node use:
 
@@ -102,7 +102,7 @@ CREATE TABLE metadata (
     mouth_prop VARCHAR,
     ears       VARCHAR,
     neck       VARCHAR,
-    
+
     -- image
     image      VARCHAR      NOT NULL
 );
@@ -152,7 +152,7 @@ The attributes are broken up in ten categories:
 
 
 The images are stored "inline" in the image column in 24×24 px in the PNG (Portable Network Graphics) format with transparent background and base64-encoded
-and starting with `image:data`. Example - punk no. 0:
+and starting with `data:image`. Example - punk no. 0:
 
 
 ```
