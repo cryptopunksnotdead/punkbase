@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>punkbase (test)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://pixelartexchange.github.io/artbase.js/artbase.js"></script>
+</head>
+<body>
+
+
+<h1>punkbase (test) </h1>
+
+<p>
+  The entire punks universe (10 000 pixel heads)
+    in a single sqlite database (file)
+    with a "serverless" web page for queries
+    and all in a git repository ready to clone / fork. No rights reserved.
+</p>
+
+
+<table>
+    <tr>
+      <td>SELECT</td>
+      <td><textarea id='select'
+                    placeholder='select query'
+                    rows="10" cols="60"></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"> <button style='width: 100%;' id='query'>Query</button>
+      </td>
+    </tr>
+</table>
+
+
+
+<div class='container'>
+   <div>Loading ...</div>
+</div>
+
+
+
+
+<script>
+   function update( result ) {
+     console.log( result )
+
+     const str = JSON.stringify(result, null, 2) // spacing level = 2
+     document.querySelector(".container").innerHTML = `<pre>${str}</pre>`
+   }
+
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const artbase = new Artbase()
+    await artbase.init( {  database: "punkbase.db",
+                        })
+
+    // query no. of records for startup ready check
+    const result = artbase.query( `select count(*) from metadata` )
+    update( result )
+
+    document.querySelector("#query").addEventListener("click", () => {
+      const sql = document.querySelector("#select").value
+      const result = artbase.query( sql )
+      update( result )
+    })
+  })
+  </script>
+</body>
+</html>

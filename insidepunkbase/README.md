@@ -4,9 +4,9 @@
 
 <https://sqlite.org>
 
-The world's most popular "server-less" database.  
+The world's most popular "server-less" database.
 
-"Server-less?!"  -  "Old School" "Server-less" - it's a library - no client/server database - 
+"Server-less?!"  -  "Old School" "Server-less" - it's a library - no client/server database -
 that is,  sql queries done via "local" function calls!
 
 Source code in C.  Public domain (that is, no rights reserved).
@@ -19,7 +19,7 @@ Source code in C.  Public domain (that is, no rights reserved).
 
 <https://sql.js.org>
 
-SQLite compiled to JavaScript that runs - yes - in your browser (web page) "server-less"!  
+SQLite compiled to JavaScript that runs - yes - in your browser (web page) "server-less"!
 
 Source code in C compiled via Emscripten (to WebAssembly, really ;-).
 
@@ -39,7 +39,7 @@ with all metadata (e.g. base type, skin tone, gender, head, eyes, etc.)
 
 ## What is punkbase?
 
-Query punkbase.db with SQL online using "server-less" web page 
+Query punkbase.db with SQL online using "server-less" web page
 thanks to SQL.js
 
 Demo <https://cryptopunksnotdead.github.io/punkbase/>
@@ -69,7 +69,7 @@ CREATE TABLE metadata (
     mouth_prop VARCHAR,
     ears       VARCHAR,
     neck       VARCHAR,
-    
+
     -- image
     image      VARCHAR      NOT NULL
 );
@@ -78,10 +78,10 @@ CREATE TABLE metadata (
 Yes, it's just a single table.
 
 
-What about the pixel artwork / images? 
+What about the pixel artwork / images?
 
-The images are stored "inline" 
-in the image column in 24×24 px in the PNG (Portable Network Graphics) 
+The images are stored "inline"
+in the image column in 24×24 px in the PNG (Portable Network Graphics)
 format with transparent background and base64-encoded
 and starting with `image:data`. Example - punk no. 0:
 
@@ -120,7 +120,7 @@ class Artbase {
     const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
     this.db = new SQL.Database(new Uint8Array(buf));
   }
-  
+
   // and "server-less" function call for sql queries via exec(ute)
    query( sql ) {
       return this.db.exec( sql );
@@ -135,6 +135,8 @@ Usage
 
 ```js
 const artbase = new Artbase();
+await artbase.init( "punkbase.db" );
+
 const result = artbase.query( `select *
                                from   metadata
                                where  gender    = "f" AND
@@ -144,8 +146,15 @@ const result = artbase.query( `select *
 //=>  3 punkettes ("marilyns")
 ```
 
+resulting in:
 
-  
+```json
+
+```
+
+
+
+
 
 ## What is SQL.js? Continued  - Usage - Inside Punkbase  - "No-Code" SQL Queries
 
