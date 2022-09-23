@@ -205,11 +205,22 @@ td {
       if (target) {
         let key = target.getAttribute('data-key')
         let val = target.getAttribute('data-val')
+
+        let where_string = ''
+        // note: simply heuristic for now - if 0-9 (single-digit) number assume number type
+        if (val.match( /^[0-9]$/ )) {
+            // unquoted; assume number
+            where_string = `${key} = ${val}`
+        } else {
+            // quoted; assume string (default)
+            where_string = `${key} = '${val}'`
+        }
+
         let where = document.querySelector("#where").value
         if (where.trim().length > 0) {
-          document.querySelector("#where").value = `${where} AND\n"${key}" = "${val}"`
+          document.querySelector("#where").value = `${where} AND\n${where_string}`
         } else {
-          document.querySelector("#where").value = `"${key}" = "${val}"`
+          document.querySelector("#where").value = `${where_string}`
         }
         artbase.next()
       }
