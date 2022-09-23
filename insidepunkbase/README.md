@@ -139,17 +139,98 @@ await artbase.init( "punkbase.db" );
 
 const result = artbase.query( `select *
                                from   metadata
-                               where  gender    = "f" AND
-                               head      = "Wild Blonde" AND
-                               skin_tone = "Light" AND
-                               blemishes = "Mole"` );
+                               where  gender    = 'f' AND
+                               head      = 'Wild Blonde' AND
+                               skin_tone = 'Light' AND
+                               blemishes = 'Mole'` );
 //=>  3 punkettes ("marilyns")
 ```
 
 resulting in:
 
 ```json
-
+[
+  {
+    "columns": [
+      "id",
+      "base",
+      "gender",
+      "skin_tone",
+      "count",
+      "blemishes",
+      "head",
+      "beard",
+      "eyes",
+      "nose",
+      "mouth",
+      "mouth_prop",
+      "ears",
+      "neck",
+      "image",
+      "created_at",
+      "updated_at"
+    ],
+    "values": [
+      [
+        3725,
+        "Human",
+        "f",
+        "Light",
+        3,
+        "Mole",
+        "Wild Blonde",
+        null,
+        "Green Eye Shadow",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAGFBMVEUAAAAAAABchTlumE1xEBCRdlbbsYD/9o6wz3knAAAACHRSTlMA/////////9XKVDIAAACnSURBVHichZAxDsIwDEV/IxWvPQMn4B4sSExsrN2y5QxsuQHdGcgBGDgJV0gYTREmTqS2EgPenv1s2TZYhPkDBDeBY5e5goMF+goET2ByVsF6qxn2GUilHF61nEGM2lk0xA4CtkUDUpMG0h7G+X2XmxqlIh2edQPG2G6w13FaOS5G80oQcOjrOq8GOwxUwHt8HsCpAEsw6zFNxwVc50u3lzRDK78P+QL2JDO9McBF3gAAAABJRU5ErkJggg==",
+        "2022-08-29 16:44:23.877084",
+        "2022-08-29 16:44:23.877084"
+      ],
+      [
+        7645,
+        "Human",
+        "f",
+        "Light",
+        4,
+        "Mole",
+        "Wild Blonde",
+        null,
+        "Clown Eyes Blue",
+        null,
+        "Purple Lipstick",
+        null,
+        null,
+        null,
+        "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAG1BMVEUAAAAAAAAoWLEpPmQsUZWRdlbNAMvbsYD/9o7EIpG6AAAACXRSTlMA//////////83ApvUAAAAoElEQVR4nIWQIRICMQxFfzsDRMIMlrtwBDQKiUSujKxjNYbeCG7SyrA7UJqW3WUGQdxLXtufWnyV/QMEN4ITl7mCAwNNBQIThBwrMLN2RIFUysWq5Q5C0JNFQ1giDRr6aHxLCoKzvaeNGmXyjLjVBILObLEeJqcZsPtcLYsXPI5NjfOwOKCl+g4jhZI0gyRvVl0cl/O4TpvuL3GCefr9kDdLKjPPD7rOeQAAAABJRU5ErkJggg==",
+        "2022-08-29 16:47:06.686801",
+        "2022-08-29 16:47:06.686801"
+      ],
+      [
+        9712,
+        "Human",
+        "f",
+        "Light",
+        4,
+        "Mole",
+        "Wild Blonde",
+        null,
+        null,
+        null,
+        null,
+        "Vape",
+        "Earring",
+        null,
+        "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAIVBMVEUAAAAAAAAAQP9ZWVlxEBCRdlambizSnWDbsYD/2Sb/9o5w16fTAAAAC3RSTlMA/////////////312fdUAAACtSURBVHichZA9DsIwDIWfClKFpxwBehmukZUFNSMXQOqWqXPmbIxcJvQG7WQGoCVO+KnEgLfP79l6doFZFX+A4D/g2UfO4OGANgNBE5i8E3DaSYd1BBJTLC222EEIMplsCGuMYJdsQFd0NckMYz92YxBHUm4Kp5yAcSgVjKwTRc1W8+oBi2Ob41wXqBtjlIDWuJ+rapMUnuxyG8LlfZzF1PfDC3bN8D27nH4f8gRxzTfh5odm/AAAAABJRU5ErkJggg==",
+        "2022-08-29 16:48:12.730838",
+        "2022-08-29 16:48:12.730838"
+      ]
+    ]
+  }
+]
 ```
 
 
