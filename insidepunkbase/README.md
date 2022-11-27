@@ -1,4 +1,5 @@
-# Stahlstadt.js  Talk Notes  - Inside Punkbase - SQLite (SQL.js) In Action
+# Vienna.js  Talk Notes  - Inside Punkbase - SQLite (SQL.js) In Action
+
 
 ## What is SQLite?
 
@@ -10,7 +11,6 @@ The world's most popular "server-less" database.
 that is,  sql queries done via "local" function calls!
 
 Source code in C.  Public domain (that is, no rights reserved).
-
 
 
 
@@ -27,6 +27,7 @@ Two Parts:
 
 - "Booter/Init/Loader" Script in "Plain" Javascript  e.g <https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js> about ~100k.
 - WebAssembly "Blob"  e.g. <https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.wasm> about ~1MB.
+
 
 
 ## What is punkbase.db?
@@ -275,3 +276,23 @@ Original idea and source code by Skøgard (of Factoria Fame).
 See <https://github.com/mixtape-network/moonbirdbase>,
 <https://github.com/mixtape-network/mferbase>,
 <https://github.com/mixtape-network/creyziebase>. and others.
+
+
+
+
+## Breaking News - SQLite Gets Offical "First-Class" WebAssembly & JavaScript Support
+
+see <https://sqlite.org/wasm>
+
+Announced in October 2022 the about page reads:
+
+> About the sqlite3 WASM/JS Subproject
+> WebAssembly, a.k.a. WASM, is a standard defining a low-level programming language suitable
+> (A) as a target for cross-compilation from many other languages and 
+> (B) for running via a virtual machine in a browser.
+> Designed with scriptability via JavaScript in mind, it provides a way to compile C code (among others) to WASM and script 
+> it via JavaScript with relatively little friction despite the vast differences between JavaScript and C.
+>
+> Folks have been building sqlite3 for the web since as far back as 2012
+> but this subproject is the first effort "officially" associated with the SQLite project, 
+> created with the goal of making WASM builds of the library first-class members of the family of supported SQLite deliverables.
