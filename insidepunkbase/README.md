@@ -31,7 +31,7 @@ Two Parts:
 
 ## What are punk (pixel) heads?
 
-For some background see [** Inside the Billion Dollar $$$ (Crypto) Punk (Pixel) Heads »**](https://github.com/cryptopunksnotdead/cryptopunks/tree/master/insidepunks)
+For some background see [**Inside the Billion Dollar $$$ (Crypto) Punk (Pixel) Heads »**](https://github.com/cryptopunksnotdead/cryptopunks/tree/master/insidepunks)
 
 
 
