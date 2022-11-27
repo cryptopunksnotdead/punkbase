@@ -29,6 +29,11 @@ Two Parts:
 - WebAssembly "Blob"  e.g. <https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.wasm> about ~1MB.
 
 
+## What are punk (pixel) heads?
+
+For some background see [** Inside the Billion Dollar $$$ (Crypto) Punk (Pixel) Heads »**](https://github.com/cryptopunksnotdead/cryptopunks/tree/master/insidepunks)
+
+
 
 ## What is punkbase.db?
 
